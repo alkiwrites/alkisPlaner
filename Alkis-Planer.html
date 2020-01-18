@@ -144,12 +144,19 @@
 
    //  como hcaer lo de ahce click
     add.addEventListener('click', ()=>{
-            if( titulo.value.trim() == '' || descripcion.value.trim() == '' )
-            {
-                window.alert('algo falta');
 
-            } else {
-                  // la div contenedora
+        // faltan campos
+            if( titulo.value.trim() == '' )
+            {
+                titulo.style.border  = '1px solid red'; // canbiamos
+
+            }else if(descripcion.value.trim() == '') 
+            {
+                titulo.style.border  = '1px solid green';   // cambiamos estilos
+                descripcion.style.border  = '1px solid red';
+            } else {  // de tora manera..
+
+                     // la div principal
                      var div = doc.createElement('div');  // creamos el item
                      div.classList.add('column', 'is-one-quarter','card','is-3','item');  // agregamos la clase
                 
@@ -167,11 +174,17 @@
                     done.type = 'button';
                     done.textContent = 'Hecho';
 
-                    // agregamos a div los elementos
-                    div.append(h3,p,done); 
+                    div.append(h3,p,done);   // hacemos agergarle a la div
+
                     items.push(div); // metemos en los items
                     panel.append(div);  // agregamos al panel
                     modal.classList.remove('is-active'); // out class
+
+                    // resetamos los campos
+                    titulo.value = '';
+                    descripcion.value = '';
+                    titulo.style.border  = '1px solid #000';
+                    descripcion.style.border  = '1px solid #000';
             }
     });
     
@@ -190,7 +203,7 @@
                 // hook el evento del target
                 if(e.target && e.target.id == 'done'){  // si cocincide
                        var hook = e.target.closest('.item'); // el hook a la columna
-                       hook.style.border = '1px solid red'; // cambiamos el estilos
+                       hook.style.border = '1px solid green'; // cambiamos el estilos
                 }
  });
 
