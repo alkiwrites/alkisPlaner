@@ -51,7 +51,6 @@
               width: 48%;
           }
 
-
           /* los estilos de los item */
           .item {
               margin-left: 6px !important;
@@ -61,7 +60,6 @@
   
     
     </style>
-
       <!-- y funciona de puta madre -->
 
       
@@ -175,6 +173,7 @@
                     done.textContent = 'Hecho';
 
                     div.append(h3,p,done);   // hacemos agergarle a la div
+                    div.style.border = '1px solid orangered';
 
                     items.push(div); // metemos en los items
                     panel.append(div);  // agregamos al panel
